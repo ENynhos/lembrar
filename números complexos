@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+typedef struct{
+    float fr;
+    float im;
+} comp;
+
+void scanC(comp *c){
+    scanf("(%f %f'i')", &c->fr, &c->im);
+    
+}
+
+void printC(comp c){
+    printf("(%f %+fi)", c.fr, c.im);
+    
+}
+
+
+   int main(){
+       comp a;
+       scanC(&a);
+       printC(a);
+       
+   }
