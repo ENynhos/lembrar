@@ -13,12 +13,25 @@ void scanC(comp *c){
 void printC(comp c){
     printf("(%f %+fi)", c.fr, c.im);
     
+comp somC(comp a, comp b){
+    comp s;
+    s.fr = a.fr + b.fr;
+    s.im = a.im + b.im;
+    return s;
 }
 
+comp subC(comp a, comp b){
+    comp sb;
+    sb.fr = a.fr - b.fr;
+    sb.im = a.im - b.im;
+    return sb;
+}
 
-   int main(){
-       comp a;
-       scanC(&a);
-       printC(a);
-       
-   }
+comp multC(comp a, comp b){
+    comp m;
+    m.fr = (a.fr * b.fr) - (a.im * b.im);
+    m.im = (a.fr * b.im) + (b.fr * a.im);
+    return m;
+}
+
+comp divC(comp a, comp b)
