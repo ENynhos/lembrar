@@ -27,3 +27,17 @@ for(int i = 0; i < lin; i++){
                 counter++;//amount of read elements
                 }
             }
+//matriz de colunas variáveis
+        scanf("%d", &N);
+    int X[N];
+        for(int i = 0; i < N; i++){
+        scanf("%d", &M);
+            for(int j = 0;  j < M; j++){
+                int V[M];
+                scanf("%d", &V[j]);
+                X[i] += V[j];
+                 }
+                for(int H = 0; H < N ; H++){
+                X[H] = pow(X[H]-M, 2)/M-1;
+             }
+        }
