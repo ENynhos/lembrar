@@ -125,12 +125,37 @@ void delLeft(TListSE *L){
             L->last == NULL;
 }
 
-
+void delRight(TListSE *L){
+        TNode *aux;
+        aux = L->first;
+        
+        if(L->first == L->last){
+            free(L->first);
+            L->last = L->first;
+        }
+        else{
+        while(aux->next->next != NULL)
+            aux = aux->next;
+            
+        L->last = aux;
+        free(aux->next);
+        L->last->next = NULL;
+        }
+        L->length--;
+}
+        
+TNode* searchList(Tdata x, TListSE L){
+    TNode *aux = L.first;
+        while(aux && aux->info != x)
+            aux = aux->next;
+        return aux;
+}
 
 int main(){
     TListSE l1;
     short a;
     char index;
+    TNode *n;
     
     printf(" Inicializando a lista. \n");
         initList(&l1);
@@ -150,18 +175,38 @@ int main(){
         printList(l1);
         putchar('\n');
         
-            printf("Voce gostaria de remover o primeiro dígito?\nY or N\n");
+            printf("Voce gostaria de remover o ultimo dígito?\nY or N\n");
             scanf("%c", &index);
-                if(index == 'Y')
-                    delLeft(&l1);
+            getchar();
+                if(index == 'Y'){
+                    delRight(&l1);
                     
-        printList(l1);
-        putchar('\n');
+                        printList(l1);
+                            putchar('\n');
+               } else{
+                     printf("Voce busca algum elemento em específico?\nY or N\n");
+                        scanf("%c", &index);
+                        getchar();
+                            if(index == 'Y'){
+                             printf("Qual seria o elemento?\n digite aqui:\n>>");
+                            scanf("%hd", &a);
+                        printf("Buscando...\n");
+                        n = searchList(a, l1);
+                        if(n){
+                            printf("elemento encontrado em %p.\n", n);
+                            printf("imprimindo o valor: %hd\n", n->info);
+                            printf("Modificando o valor para 5...\n");
+                            n->info = 5;
+                            printList(l1);
+                            printf("\n");
+                            }
+                        
+                    }
+                        
         deleteList(&l1);
         return 0;
         
-        
-            
+               }         
 }
             
                     
