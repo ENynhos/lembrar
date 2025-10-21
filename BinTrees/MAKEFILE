@@ -1,0 +1,14 @@
+BinTree: main.o libBinTree.a
+	gcc -o BinTree main.o -L. -lBinTree -lm
+
+main.o: main BinTree.h
+	gcc -c main.c
+
+libBinTree.a: BinTree.o
+	ar rcsv libBinTree.a BinTree.o
+
+BinTree.o: BinTree.c Bintree.h
+	gcc -c Bintree.c
+
+clean:
+   rm -f .o
