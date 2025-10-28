@@ -1,5 +1,5 @@
 BinTree: main.o libBinTree.a
-	gcc -o BinTree main.o -L. -lBinTree -lm
+	gcc -o BinTree main.o -L. -lBinTree -lm -g
 
 main.o: main BinTree.h
 	gcc -c main.c
