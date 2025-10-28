@@ -2,7 +2,7 @@
 
 #define CLEAR "\033[0;0;0m"
 #define RESET "\033[0m"
-#define YELLOW_GREEN_BOLD "\033[93;42;1m"
+#define WHITE_RED "\033[97;101;1m"
 
 
 typedef unsigned Tdado;
