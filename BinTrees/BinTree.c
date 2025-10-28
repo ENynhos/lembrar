@@ -99,7 +99,7 @@ TreeNode* deleteByCopy(TreeNode *bt, Tdado x)
 		bt right = deleteByCopy(bt->right, x);
 	return bt;
 }
-
+//imprimir árvore na tela
 void printBinTree(cont TreeNode *bt, int level){
 	int i;
 	
@@ -116,7 +116,7 @@ void printBinTree(cont TreeNode *bt, int level){
 		printfBinTree(bt->left, level + 1);
 	}
 }
-
+//limpar árvore
 void freeBinTree(TreeNode* bit){
 	if(!bt){
 		return;
